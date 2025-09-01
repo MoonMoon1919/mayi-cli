@@ -9,7 +9,7 @@ GOMOD=$(GOCMD) mod
 GOFMT=$(GOCMD) fmt
 GOCLEAN=$(GOCMD) clean
 
-BINARY_NAME=`basename $(pwd)`
+BINARY_NAME=$(basename `pwd`)
 GOVERSION=`cat go.mod | grep 'go\s\d.' | cut -d ' ' -f2`
 VERSION=`git describe --tags --always`
 
@@ -18,7 +18,7 @@ LINUX_AMD64_PATH=$(BINARY_NAME)_linuxamd64_$(VERSION)
 DARWIN_ARM64_PATH=$(BINARY_NAME)_darwinarm64_$(VERSION)
 DARWIN_AMD64_PATH=$(BINARY_NAME)_darwinamd64_$(VERSION)
 
-LD_FLAGS=-ldflags="-X github.com/MoonMoon1919/gignore-cli/internal/builder.VERSION=$(VERSION)" .
+LD_FLAGS=-ldflags="-X github.com/MoonMoon1919/$(BINARY_NAME)/internal/builder.VERSION=$(VERSION)" .
 
 
 # Check if required tools are installed
