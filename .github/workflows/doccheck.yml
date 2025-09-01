@@ -1,0 +1,36 @@
+name: doccheck
+
+on:
+  pull_request:
+    paths-ignore:
+      - "LICENSE"
+      - ".gitignore"
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - "LICENSE"
+      - ".gitignore"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Check README
+        run: make validate/readme
+
+      - name: Check bug report issue template
+        run: make validate/bugreport
+
+      - name: Check PR template
+        run: make validate/pullrequest
+
+      - name: Check Contributing
+        run: make validate/contrib
