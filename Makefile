@@ -94,11 +94,11 @@ build/darwinarm64:
 # docs
 .PHONY: docs/readme
 docs/readme:
-	@$(GOCMD) run docs/main.go render --doc-name 'MAYI' --path README.md
+	@$(GOCMD) run docs/main.go render --doc-name 'MAYI-CLI' --path README.md
 
 .PHONY: validate/readme
 validate/readme:
-	@$(GOCMD) run docs/main.go compare --doc-name 'MAYI' --path README.md
+	@$(GOCMD) run docs/main.go compare --doc-name 'MAYI-CLI' --path README.md
 
 .PHONY: docs/contrib
 docs/contrib:

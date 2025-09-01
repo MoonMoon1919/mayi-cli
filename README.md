@@ -1,4 +1,4 @@
-# MAYI
+# MAYI-CLI
 
 A powerful CLI tool for managing codeowners files with intelligent conflict detection, rule analysis, and automatic optimization. Powered by [mayi](https://github.com/MoonMoon1919/mayi)
 

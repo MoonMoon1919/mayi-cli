@@ -3,7 +3,7 @@ package documents
 import "github.com/MoonMoon1919/doyoucompute"
 
 func ReadMe() (doyoucompute.Document, error) {
-	document, err := doyoucompute.NewDocument("MAYI")
+	document, err := doyoucompute.NewDocument("MAYI-CLI")
 	if err != nil {
 		return doyoucompute.Document{}, err
 	}
