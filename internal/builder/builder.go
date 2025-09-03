@@ -7,6 +7,7 @@ import (
 
 	"github.com/MoonMoon1919/mayi"
 	"github.com/MoonMoon1919/mayi/pkg/results"
+	"github.com/MoonMoon1919/mayi/pkg/rules"
 	"github.com/MoonMoon1919/mayi/pkg/service"
 	"github.com/urfave/cli/v3"
 )
@@ -92,6 +93,13 @@ func New(svc service.Service) *cli.Command {
 		Usage: "The number of attempted fixes the autofixer will perform before exiting",
 	}
 
+	actionName := "action"
+	actionFlag := cli.StringFlag{
+		Name:  actionName,
+		Value: "include",
+		Usage: "if you would like to ignore or allow the path (useful for exclusion) - either 'include' or 'exclude'",
+	}
+
 	cmd := &cli.Command{
 		Name:  "mayi-cli",
 		Usage: "Manage and search your codeowners files with ease",
@@ -110,12 +118,18 @@ func New(svc service.Service) *cli.Command {
 				Name:  "add",
 				Usage: "Add new rules and rule owners",
 				Commands: []*cli.Command{
-					makePathCommand("rule", "Add a new rule", []cli.Flag{&patternFlag, &ownersFlag},
+					makePathCommand("rule", "Add a new rule", []cli.Flag{&patternFlag, &ownersFlag, &actionFlag},
 						func(path string, c *cli.Command) error {
 							pattern := c.String(patternFlagName)
 							owners := c.StringSlice(ownersFlagName)
+							action := c.String(actionName)
 
-							results, err := svc.AddRule(path, pattern, owners)
+							parsedAction, err := rules.ActionFromString(action)
+							if err != nil {
+								return err
+							}
+
+							results, err := svc.AddRule(path, pattern, owners, parsedAction)
 							if err != nil {
 								return fmt.Errorf("❌ Failed to add rule: %w", err)
 							}
@@ -144,7 +158,7 @@ func New(svc service.Service) *cli.Command {
 				Name:  "delete",
 				Usage: "Delete rules and rule owners",
 				Commands: []*cli.Command{
-					makePathCommand("rule", "Delete an existing rule", []cli.Flag{&patternFlag},
+					makePathCommand("rule", "Delete an existing rule", []cli.Flag{&patternFlag, &actionFlag},
 						func(path string, c *cli.Command) error {
 							pattern := c.String(patternFlagName)
 
