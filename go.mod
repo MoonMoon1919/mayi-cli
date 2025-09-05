@@ -4,7 +4,7 @@ go 1.23.7
 
 require (
 	github.com/MoonMoon1919/doyoucompute v0.1.0-alpha
-	github.com/MoonMoon1919/mayi v0.0.0-20250905020409-ee3adff146a0
+	github.com/MoonMoon1919/mayi v0.0.0-20250905135338-258cb8b8f902
 	github.com/urfave/cli/v3 v3.3.8
 )
 
