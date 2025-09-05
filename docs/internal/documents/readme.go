@@ -31,6 +31,63 @@ func ReadMe() (doyoucompute.Document, error) {
 	)
 
 	// TODO: Add commands to quickstart!
+	basicCommands := quickStartSection.CreateSection("Basic commands")
+	basicCommands.WriteCodeBlock("sh", []string{`mayi-cli create
+
+# Add a rule
+mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+
+# Search for owners
+mayi-cli get owners --pattern docs/
+
+# Add another owner
+mayi-cli add owner --pattern 'docs/*' --owner '@example'
+
+# Analyze the file
+mayi-cli analyze`}, doyoucompute.Exec)
+
+	// Usage
+	usageSection := document.CreateSection("Usage")
+	creation := usageSection.CreateSection("Creating files")
+	creation.WriteCodeBlock("sh", []string{`# Defaults to .github/CODEOWNERS
+mayi-cli create
+
+# Or override to your desired path
+mayi-cli create --path CODEOWNERS`}, doyoucompute.Exec)
+
+	adding := usageSection.CreateSection("Adding rules")
+	adding.WriteCodeBlock("sh", []string{`# Add a basic rule to have one owner for docs
+mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+
+# Except for samples - require no owner for those
+mayi-cli add rule --pattern 'docs/internal/samples/*' --owners '' --action exclude`}, doyoucompute.Exec)
+
+	addingOwners := usageSection.CreateSection("Adding rule owners")
+	addingOwners.WriteCodeBlock("sh", []string{"mayi-cli add owner --pattern 'docs/*' --owner @example"}, doyoucompute.Exec)
+
+	removing := usageSection.CreateSection("Removing rules")
+	removing.WriteCodeBlock("sh", []string{"mayi-cli delete rule --pattern 'docs/internal/samples/*'"}, doyoucompute.Exec)
+
+	removingOwners := usageSection.CreateSection("Removing rule owners")
+	removingOwners.WriteCodeBlock("sh", []string{"mayi-cli delete owner --pattern 'docs/*' --owner @example"}, doyoucompute.Exec)
+
+	getting := usageSection.CreateSection("Searching for rules")
+	getting.WriteCodeBlock("sh", []string{"mayi-cli get owners --pattern docs/"}, doyoucompute.Exec)
+
+	moving := usageSection.CreateSection("Moving rules")
+	moving.WriteCodeBlock("sh", []string{`# Add a random rule
+mayi-cli add rule --pattern '*.md' --owners @MoonMoon1919
+
+# Then move it
+mayi-cli move --source-pattern '*.md' --destination-pattern 'docs/*' --direction before`}, doyoucompute.Exec)
+
+	analyze := usageSection.CreateSection("Analyzing")
+	analyze.WriteCodeBlock("sh", []string{`# Analyze without fixing
+mayi-cli analyze
+
+# Or fix any errors the analyzer encounters
+mayi-cli analyze --fix
+	`}, doyoucompute.Exec)
 
 	// Contrib
 	contributing := document.CreateSection("Contributing")

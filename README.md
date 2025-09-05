@@ -18,6 +18,91 @@ A powerful CLI tool for managing codeowners files with intelligent conflict dete
 go install github.com/MoonMoon1919/mayi-cli@latest
 ```
 
+### Basic commands
+
+```sh
+mayi-cli create
+
+# Add a rule
+mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+
+# Search for owners
+mayi-cli get owners --pattern docs/
+
+# Add another owner
+mayi-cli add owner --pattern 'docs/*' --owner '@example'
+
+# Analyze the file
+mayi-cli analyze
+```
+
+## Usage
+
+### Creating files
+
+```sh
+# Defaults to .github/CODEOWNERS
+mayi-cli create
+
+# Or override to your desired path
+mayi-cli create --path CODEOWNERS
+```
+
+### Adding rules
+
+```sh
+# Add a basic rule to have one owner for docs
+mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+
+# Except for samples - require no owner for those
+mayi-cli add rule --pattern 'docs/internal/samples/*' --owners '' --action exclude
+```
+
+### Adding rule owners
+
+```sh
+mayi-cli add owner --pattern 'docs/*' --owner @example
+```
+
+### Removing rules
+
+```sh
+mayi-cli delete rule --pattern 'docs/internal/samples/*'
+```
+
+### Removing rule owners
+
+```sh
+mayi-cli delete owner --pattern 'docs/*' --owner @example
+```
+
+### Searching for rules
+
+```sh
+mayi-cli get owners --pattern docs/
+```
+
+### Moving rules
+
+```sh
+# Add a random rule
+mayi-cli add rule --pattern '*.md' --owners @MoonMoon1919
+
+# Then move it
+mayi-cli move --source-pattern '*.md' --destination-pattern 'docs/*' --direction before
+```
+
+### Analyzing
+
+```sh
+# Analyze without fixing
+mayi-cli analyze
+
+# Or fix any errors the analyzer encounters
+mayi-cli analyze --fix
+	
+```
+
 ## Contributing
 
 See [CONTRIBUTING](./CONTRIBUTING.md) for details.
