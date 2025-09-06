@@ -24,7 +24,7 @@ go install github.com/MoonMoon1919/mayi-cli@latest
 mayi-cli create
 
 # Add a rule
-mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919' --owners '@toastsandwich123'
 
 # Search for owners
 mayi-cli get owners --pattern docs/
