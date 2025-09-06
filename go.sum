@@ -18,6 +18,8 @@ github.com/MoonMoon1919/mayi v0.0.0-20250906005133-8c9ef9c4da60 h1:ZlQk9VGHKnY5d
 github.com/MoonMoon1919/mayi v0.0.0-20250906005133-8c9ef9c4da60/go.mod h1:ajeXOL7dssMq1Q9ey/PKdHbgtvfUQ/I4T+mSJENpVVc=
 github.com/MoonMoon1919/mayi v0.0.0-20250906152626-467946614698 h1:QwuhLpnMsH+o6MaOz3vmQsy3IBwNHxB9hpljcuRM6BE=
 github.com/MoonMoon1919/mayi v0.0.0-20250906152626-467946614698/go.mod h1:ajeXOL7dssMq1Q9ey/PKdHbgtvfUQ/I4T+mSJENpVVc=
+github.com/MoonMoon1919/mayi v0.0.0-20250906155210-fc894749766c h1:+/ig2Xv0E27Z6UMDlqVOGehdjfYc3U8F6HH06riCAe4=
+github.com/MoonMoon1919/mayi v0.0.0-20250906155210-fc894749766c/go.mod h1:ajeXOL7dssMq1Q9ey/PKdHbgtvfUQ/I4T+mSJENpVVc=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
