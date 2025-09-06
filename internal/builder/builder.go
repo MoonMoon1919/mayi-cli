@@ -45,10 +45,10 @@ func New(svc service.Service) *cli.Command {
 		Required: true,
 	}
 
-	ownersFlagName := "owners"
+	ownersSliceFlagName := "owner"
 	ownersFlag := cli.StringSliceFlag{
-		Name:     ownersFlagName,
-		Usage:    "list of owners to assign to the rule",
+		Name:     ownersSliceFlagName,
+		Usage:    "owner to assign to the rule - may be used more than once",
 		Required: true,
 	}
 
@@ -121,7 +121,7 @@ func New(svc service.Service) *cli.Command {
 					makePathCommand("rule", "Add a new rule", []cli.Flag{&patternFlag, &ownersFlag, &actionFlag},
 						func(path string, c *cli.Command) error {
 							pattern := c.String(patternFlagName)
-							owners := c.StringSlice(ownersFlagName)
+							owners := c.StringSlice(ownersSliceFlagName)
 							action := c.String(actionName)
 
 							parsedAction, err := rules.ActionFromString(action)

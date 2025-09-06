@@ -35,7 +35,7 @@ func ReadMe() (doyoucompute.Document, error) {
 	basicCommands.WriteCodeBlock("sh", []string{`mayi-cli create
 
 # Add a rule
-mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919' --owners '@toastsandwich123'
+mayi-cli add rule --pattern 'docs/*' --owner '@MoonMoon1919' --owner '@toastsandwich123'
 
 # Search for owners
 mayi-cli get owners --pattern docs/
@@ -57,10 +57,10 @@ mayi-cli create --path CODEOWNERS`}, doyoucompute.Exec)
 
 	adding := usageSection.CreateSection("Adding rules")
 	adding.WriteCodeBlock("sh", []string{`# Add a basic rule to have one owner for docs
-mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+mayi-cli add rule --pattern 'docs/*' --owner '@MoonMoon1919'
 
 # Except for samples - require no owner for those
-mayi-cli add rule --pattern 'docs/internal/samples/*' --owners '' --action exclude`}, doyoucompute.Exec)
+mayi-cli add rule --pattern 'docs/internal/samples/*' --owner '' --action exclude`}, doyoucompute.Exec)
 
 	addingOwners := usageSection.CreateSection("Adding rule owners")
 	addingOwners.WriteCodeBlock("sh", []string{"mayi-cli add owner --pattern 'docs/*' --owner @example"}, doyoucompute.Exec)
@@ -76,7 +76,7 @@ mayi-cli add rule --pattern 'docs/internal/samples/*' --owners '' --action exclu
 
 	moving := usageSection.CreateSection("Moving rules")
 	moving.WriteCodeBlock("sh", []string{`# Add a random rule
-mayi-cli add rule --pattern '*.md' --owners @MoonMoon1919
+mayi-cli add rule --pattern '*.md' --owner @MoonMoon1919
 
 # Then move it
 mayi-cli move --source-pattern '*.md' --destination-pattern 'docs/*' --direction before`}, doyoucompute.Exec)

@@ -24,7 +24,7 @@ go install github.com/MoonMoon1919/mayi-cli@latest
 mayi-cli create
 
 # Add a rule
-mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919' --owners '@toastsandwich123'
+mayi-cli add rule --pattern 'docs/*' --owner '@MoonMoon1919' --owner '@toastsandwich123'
 
 # Search for owners
 mayi-cli get owners --pattern docs/
@@ -52,10 +52,10 @@ mayi-cli create --path CODEOWNERS
 
 ```sh
 # Add a basic rule to have one owner for docs
-mayi-cli add rule --pattern 'docs/*' --owners '@MoonMoon1919'
+mayi-cli add rule --pattern 'docs/*' --owner '@MoonMoon1919'
 
 # Except for samples - require no owner for those
-mayi-cli add rule --pattern 'docs/internal/samples/*' --owners '' --action exclude
+mayi-cli add rule --pattern 'docs/internal/samples/*' --owner '' --action exclude
 ```
 
 ### Adding rule owners
@@ -86,7 +86,7 @@ mayi-cli get owners --pattern docs/
 
 ```sh
 # Add a random rule
-mayi-cli add rule --pattern '*.md' --owners @MoonMoon1919
+mayi-cli add rule --pattern '*.md' --owner @MoonMoon1919
 
 # Then move it
 mayi-cli move --source-pattern '*.md' --destination-pattern 'docs/*' --direction before
