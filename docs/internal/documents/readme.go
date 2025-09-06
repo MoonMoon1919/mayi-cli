@@ -11,7 +11,7 @@ func ReadMe() (doyoucompute.Document, error) {
 	document.WriteIntro().
 		Text("A powerful CLI tool for managing codeowners files with intelligent conflict detection, rule analysis, and automatic optimization.").
 		Text("Powered by").
-		Link("mayi", "https://github.com/MoonMoon1919/mayi")
+		Link("mayi.", "https://github.com/MoonMoon1919/mayi")
 
 	// Features
 	featuresSection := document.CreateSection("Features")
