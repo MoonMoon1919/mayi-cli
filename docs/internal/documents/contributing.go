@@ -60,7 +60,7 @@ func codeContributions() doyoucompute.Section {
 	setupSection.WriteParagraph().
 		Text("Then clone your forked repository to your local machine:")
 
-	setupSection.WriteCodeBlock("bash", []string{"git clone <your_fork_url> doyoucompute"}, doyoucompute.Static)
+	setupSection.WriteCodeBlock("bash", []string{"git clone <your_fork_url> mayi-cli"}, doyoucompute.Static)
 	setupSection.WriteCodeBlock("bash", []string{"cd mayi-cli"}, doyoucompute.Static)
 
 	setupSection.WriteParagraph().
@@ -146,7 +146,9 @@ func writingDocs() doyoucompute.Section {
 	docsSection.WriteParagraph().
 		Text("Update the appropriate file in the").
 		Link("docs folder", "./docs").
-		Text("since we're using doyoucompute to generate it's own documents")
+		Text("since we're using").
+		Link("doyoucompute", "https://github.com/MoonMoon1919/doyoucompute").
+		Text("to generate executable documentation.")
 
 	return docsSection
 }

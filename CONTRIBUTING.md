@@ -39,7 +39,7 @@ First, fork the repository on GitHub at [https://github.com/MoonMoon1919/mayi-cl
 Then clone your forked repository to your local machine:
 
 ```bash
-git clone <your_fork_url> doyoucompute
+git clone <your_fork_url> mayi-cli
 ```
 
 ```bash
@@ -115,7 +115,7 @@ Read the [README](./README.md) to understand the project's structure and how it'
 
 Look for documentation that is unclear, incomplete, or outdated.
 
-Update the appropriate file in the [docs folder](./docs) since we're using doyoucompute to generate it's own documents
+Update the appropriate file in the [docs folder](./docs) since we're using [doyoucompute](https://github.com/MoonMoon1919/doyoucompute) to generate executable documentation.
 
 ## License
 
